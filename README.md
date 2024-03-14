@@ -4,3 +4,6 @@
 En nuestra pescadería, ofrecemos la frescura del mar en cada bocado. Desde capturas del día hasta mariscos exquisitos, satisfacemos los paladares más exigentes con calidad, variedad y un servicio excepcional. ¡Sumérgete en una experiencia gastronómica única con nosotros!
 
 Pescaderia Andrade
+
+
+Figma: https://www.figma.com/file/eIopI3pDy65yYuzIgILjjy/Pescaderia?type=design&node-id=8%3A107&mode=design&t=yMM1rDAajeT6nhKf-1
