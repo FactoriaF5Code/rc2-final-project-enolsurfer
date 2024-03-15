@@ -1,6 +1,5 @@
-Esta app consiste en un escaparate digital para una pescaderia local en la que
-podremos ver el precio de los pescados y si hay alguna oferta disponible.
+Esta app consiste en una manera de llegar a mas gente para que se animen a probar este deporte en esta localidad.
 
-La app la usaría principalmente gente de los alrededores ya que la pescaderia no realiza envios.
+La app la usaría gente de todas partes, ya que cualquiera podria desplazarse hasta las instalaciones.
 
-De momento la aplicación solo te permite ver los precios de los pescados y sus ofertas, asi como una sección de recetas con videos explicativos y texto.
+La aplicación permitira crearse una cuenta y reservar pista viendo en el apartado "Reservas" las reservas que tienes, es decir, numero de pista, fecha y hora. Mas adelante se añadira la función de seleccionar tu nivel para que la gente pueda diferenciar y escoger contra quien jugar.
