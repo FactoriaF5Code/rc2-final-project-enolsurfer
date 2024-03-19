@@ -7,3 +7,5 @@ Padel Lena
 
 
 Figma: https://www.figma.com/file/eIopI3pDy65yYuzIgILjjy/Pescaderia?type=design&node-id=0%3A1&mode=design&t=BcSejVllObYzydmY-1
+
+Miro: https://miro.com/welcomeonboard/ZWdrdm9yWVdtc2lOODhlaERDS2RYcmE1NDd2dnJmWEQzOEpnbzN1bGZGd3kxWGk1TUhhVWpJc3pzUEk3OEY4S3wzNDU4NzY0NTc2MTQyMjIwMjY0fDI=?share_link_id=745727272269
