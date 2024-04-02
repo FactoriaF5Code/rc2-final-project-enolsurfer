@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; 
+}
+
+.container h2 {
+    font-size: 3rem;
+    width: 45%; 
+    margin: 0 auto; 
+    padding: 2rem; 
+    box-sizing: border-box; 
+    background-color: yellowgreen;
+    border-radius: 3px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    background-color: yellowgreen;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;
+}
+
+.button:hover {
+    background-color: #aef129;
+}
