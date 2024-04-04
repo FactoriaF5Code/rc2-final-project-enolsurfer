@@ -9,6 +9,8 @@ import styles from '../styles/Header.module.css';
 const Header = () => {
   const router = useRouter();
   const auth = getAuth(firebaseApp); 
+  const showReservasLink = !['/Home', '/reservas'].includes(router.pathname);
+
 
   const handleReservarClick = () => {
     const user = auth.currentUser;
@@ -38,6 +40,7 @@ const Header = () => {
       <nav className={styles.nav}>
         <Link href="/contact" className={styles.link}>Contacto</Link>
         <Link href="/login" className={styles.link}>Iniciar sesión</Link>
+        {showReservasLink && <li><Link href="/reservas" className={styles.link}>Reservas</Link></li>}
       </nav>
     </header>
   );

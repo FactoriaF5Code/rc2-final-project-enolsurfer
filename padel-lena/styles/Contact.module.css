@@ -12,7 +12,7 @@
     width: 45%; 
     padding: 2rem; 
     box-sizing: border-box; 
-    background-color: yellowgreen;
+    background-color: rgba(204, 225, 80, 1);
     border-radius: 3px;
 }
 
@@ -22,7 +22,7 @@
     margin: 0 auto; 
     padding: 2rem; 
     box-sizing: border-box; 
-    background-color: yellowgreen;
+    background-color: rgba(204, 225, 80, 1);
     border-radius: 3px;
 }
 

@@ -1,0 +1,24 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.form-container h1 {
+    margin-bottom: 2rem; 
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container form input{
+    width: 40rem; 
+    height: 2.5rem; 
+    margin-bottom: 1.5rem; 
+    background-color: rgba(201, 214, 124, 1);
+}
