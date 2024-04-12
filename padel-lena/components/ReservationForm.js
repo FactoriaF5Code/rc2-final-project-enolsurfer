@@ -26,13 +26,26 @@ const ReservationForm = () => {
             selectedDate: selectedDate,
             selectedTime: selectedTime
         };
-        fetch('/api/reservation', {
+        fetch('http://localhost:9000/api/reservation', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(reservationData)
         })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            alert(`Tu reserva se ha realizado con éxito para la fecha ${selectedDate.toLocaleDateString()} a las ${selectedTime}`);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     };
 
     return (

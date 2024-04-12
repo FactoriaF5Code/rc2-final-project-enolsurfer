@@ -1,14 +1,8 @@
-// controllers/reservationController.js
 const Reservation = require('../models/reservation');
-
-exports.checkAvailability = async (req, res) => {
-    // Implementa la lógica para verificar la disponibilidad de fechas y horas
-};
 
 exports.createReservation = async (req, res) => {
     const { date, startTime, playerName } = req.body;
     
-    // Convertir la cadena de texto de startTime a un objeto Date
     const startTimeDate = new Date(date + 'T' + startTime);
 
     const newReservation = new Reservation({
@@ -25,6 +19,26 @@ exports.createReservation = async (req, res) => {
     }
 };
 
-exports.cancelReservation = async (req, res) => {
-    // Implementa la lógica para cancelar una reserva
+exports.getReservations = async (req, res) => {
+    try {
+        const reservations = await Reservation.find();
+        res.json(reservations);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 };
+
+exports.getReservation = async (req, res) => {
+    try {
+        const reservation = await Reservation.findById(req.params.id);
+        if (reservation == null) {
+            return res.status(404).json({ message: 'Cannot find reservation' });
+        }
+        res.json(reservation);
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+};
+
+
+
