@@ -32,7 +32,9 @@ const ReservationForm = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(reservationData)
-        })
+        }).then(() => {
+            alert(`Tu reserva se ha realizado con éxito para la fecha ${selectedDate.toLocaleDateString()} a las ${selectedTime}`);
+        });
     };
 
     return (
