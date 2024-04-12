@@ -1,9 +1,17 @@
-import React from 'react';
-import styles from '../styles/Reservas.module.css';
+import {useState} from 'react';
+import styles from '../styles/Reservation.module.css';
 import Header from '../components/Header';
 import Body from '../components/Body';
+import ReservationForm from '../components/ReservationForm';
 
 const ReservasPage = () => {
+
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    const handleDateSelect = (date) => {
+        setSelectedDate(date);
+    };
+
   return (
     <div>
       <Header />
@@ -13,8 +21,10 @@ const ReservasPage = () => {
               Para realizar una reserva mande un mensaje al 578362987 y le responderemos
               con la mayor brevedad posible indicandole las horas disponibles y si hay
               gente para jugar por si no vas con nadie.
+              O si lo prefiere puede usar nuestro formulario de reservas.
           </h2>
-          {/* Aquí puedes agregar un formulario de reserva u otro contenido relacionado con las reservas */}
+          <h1>Realiza tu reserva</h1>
+                <ReservationForm />
         </div>
       </Body>
     </div>

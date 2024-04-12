@@ -2,18 +2,18 @@ import React, { useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import Body from "../components/Body";
-import firebaseApp from '../config/firebaseConfig'; 
+import  '../config/firebaseConfig'; 
 import { getAuth } from 'firebase/auth';
 import { useRouter } from 'next/router'; 
 
 const HomePage = () => {
   const router = useRouter();
-  const auth = getAuth(firebaseApp); 
+  const auth = getAuth(); 
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => { 
       if (user) {
-        router.push('/reservas');
+        router.push('/reservation');
       }
     });
   }, []);
@@ -21,7 +21,7 @@ const HomePage = () => {
   const handleReservarClick = () => {
     const user = auth.currentUser;
     if (user) {
-      router.push('/reservas');
+      router.push('/reservation');
     } else {
       router.push('/login');
     }

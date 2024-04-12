@@ -1,16 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router'; 
-import firebaseApp from '../config/firebaseConfig';
+import '../config/firebaseConfig';
 import { getAuth } from 'firebase/auth'; 
 import styles from '../styles/Header.module.css';
+import { signOut } from 'firebase/auth';
 
-const Header = () => {
+const Header = ({app}) => {
   const router = useRouter();
-  const auth = getAuth(firebaseApp); 
+  const [user, setUser] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const auth = getAuth(app); 
   const showReservasLink = !['/Home', '/reservas'].includes(router.pathname);
 
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const handleReservarClick = () => {
     const user = auth.currentUser;
@@ -19,6 +29,22 @@ const Header = () => {
     } else {
       router.push('/login');
     }
+  };
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const handleSignOut = () => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        setUser(null);
+        router.push('/Home'); 
+      })
+      .catch((error) => {
+        console.error("Error al cerrar sesión: ", error);
+      });
   };
 
   return (
@@ -39,8 +65,21 @@ const Header = () => {
       </div>
       <nav className={styles.nav}>
         <Link href="/contact" className={styles.link}>Contacto</Link>
-        <Link href="/login" className={styles.link}>Iniciar sesión</Link>
-        {showReservasLink && <li><Link href="/reservas" className={styles.link}>Reservas</Link></li>}
+
+        {user ? (
+          <div className={styles.dropdown}>
+            <button className={styles.username} onClick={handleMenuToggle}>{user.displayName}</button>
+            {menuOpen && (
+              <div className={styles.dropdownContent}>
+                <Link href="/reservation" className={styles.link}>Mis Reservas</Link>
+                <button onClick={handleSignOut} className={styles.button}>Cerrar Sesión</button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <Link href="/login" className={styles.link}>Iniciar sesión</Link>
+        )}
+        {showReservasLink && <li><Link href="/reservation" className={styles.link}>Reservas</Link></li>}
       </nav>
     </header>
   );
