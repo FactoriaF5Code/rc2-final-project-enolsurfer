@@ -8,13 +8,18 @@ const app = express();
 // Middleware
 app.use(express.json());
 
+const dbUrl = process.env.DB_URL
+const dbUser = process.env.DB_US
+const dbPassword = process.env.DB_PASSWORD
+
+
 // Conexión a la base de datos
-mongoose.connect('mongodb+srv://Cluster40156:padellena@cluster40156.aiywbem.mongodb.net/reservation', {
+mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@${dbUrl}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
-.then(() => console.log('Conexión a MongoDB exitosa'))
-.catch((err) => console.error('Error al conectar a MongoDB:', err));
+    .then(() => console.log('Conexión a MongoDB exitosa'))
+    .catch((err) => console.error('Error al conectar a MongoDB:', err));
 
 // Rutas
 app.use('/api/reservations', reservationRoutes);
