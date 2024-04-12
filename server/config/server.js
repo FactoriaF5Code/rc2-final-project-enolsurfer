@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 const dbUrl = process.env.DB_URL
-const dbUser = process.env.DB_US
+const dbUser = process.env.DB_USER
 const dbPassword = process.env.DB_PASSWORD
 
 
