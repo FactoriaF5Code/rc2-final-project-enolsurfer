@@ -41,28 +41,28 @@ const Calendar = ({ onSelectDate }) => {
   return (
     <div className={styles.calendar}>
       <div className={styles.dates}>
-        {generateDates().map((date) => {
-          const isSelected =
-            selectedDate &&
-            selectedDate.getDate() === date.getDate() &&
-            selectedDate.getMonth() === date.getMonth() &&
-            selectedDate.getFullYear() === date.getFullYear();
-          return (
-            <div
-              key={date.toISOString()}
-              className={`${styles.date} ${isSelected ? styles.selected : ""}`}
-              onClick={() => handleDateClick(date)}
-            >
-              <span className={styles.day}>
-                {date.toLocaleDateString("es-ES", { weekday: "short" })}
-              </span>
-              <span className={styles.date}>{date.getDate()}</span>
-              <span className={styles.month}>
-                {date.toLocaleDateString("es-ES", { month: "short" })}
-              </span>
-            </div>
-          );
-        })}
+      {generateDates().map((date) => {
+  const isSelected =
+    selectedDate &&
+    selectedDate.getDate() === date.getDate() &&
+    selectedDate.getMonth() === date.getMonth() &&
+    selectedDate.getFullYear() === date.getFullYear();
+  return (
+    <div
+      key={date.toISOString()}
+      className={`${styles.date} ${isSelected ? styles.selected : ""}`}
+      onClick={() => handleDateClick(date)}
+    >
+      <span className={styles.day}>
+        {date.toLocaleDateString("es-ES", { weekday: "short" })}
+      </span>
+      <span className={styles.date}>{date.getDate()}</span>
+      <span className={styles.month}>
+        {date.toLocaleDateString("es-ES", { month: "short" })}
+      </span>
+    </div>
+  );
+})}
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const Header = ({app}) => {
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const auth = getAuth(app); 
-  const showReservasLink = !['/Home', '/reservas'].includes(router.pathname);
+  const showReservasLink = !['/Home'].includes(router.pathname);
 
 
   useEffect(() => {
@@ -25,8 +25,9 @@ const Header = ({app}) => {
   const handleReservarClick = () => {
     const user = auth.currentUser;
     if (user) {
-      router.push('/reservas');
+      router.push('/reservation');
     } else {
+      alert('Debes iniciar sesión para hacer una reserva');
       router.push('/login');
     }
   };
@@ -65,13 +66,16 @@ const Header = ({app}) => {
       </div>
       <nav className={styles.nav}>
         <Link href="/contact" className={styles.link}>Contacto</Link>
+        {router.pathname === '/myReservations' && (
+                    <Link href="/reservation" className={styles.link}>Reservar</Link>
+                )}
 
         {user ? (
           <div className={styles.dropdown}>
             <button className={styles.username} onClick={handleMenuToggle}>{user.displayName}</button>
             {menuOpen && (
               <div className={styles.dropdownContent}>
-                <Link href="/reservation" className={styles.link}>Mis Reservas</Link>
+                <Link href="/myReservations" className={styles.reservationLink}>Mis Reservas</Link>
                 <button onClick={handleSignOut} className={styles.button}>Cerrar Sesión</button>
               </div>
             )}
@@ -79,7 +83,6 @@ const Header = ({app}) => {
         ) : (
           <Link href="/login" className={styles.link}>Iniciar sesión</Link>
         )}
-        {showReservasLink && <li><Link href="/reservation" className={styles.link}>Reservas</Link></li>}
       </nav>
     </header>
   );
