@@ -65,7 +65,6 @@ const Header = ({app}) => {
         </Link>
       </div>
       <nav className={styles.nav}>
-        <Link href="/contact" className={styles.link}>Contacto</Link>
         {router.pathname === '/myReservations' && (
                     <Link href="/reservation" className={styles.link}>Reservar</Link>
                 )}
