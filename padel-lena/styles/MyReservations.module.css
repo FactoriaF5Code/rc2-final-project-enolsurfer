@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container h1 {
+    font-size: 3rem;
+    margin: 2rem;
+}
+
+.item {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 5px;
+    width: 80%;
+    font-size: 1.5rem;
+}
+
+.itemPast {
+    background-color: #bbbbbb;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 5px;
+    width: 80%;
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
