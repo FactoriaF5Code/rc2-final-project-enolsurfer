@@ -3,6 +3,7 @@ import styles from "../styles/Reservation.module.css";
 import Header from "../components/Header";
 import Body from "../components/Body";
 import ReservationForm from "../components/ReservationForm";
+import withAuth from "../hoc/withAuth";
 
 const ReservasPage = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -32,4 +33,4 @@ const ReservasPage = () => {
   );
 };
 
-export default ReservasPage;
+export default withAuth(ReservasPage);

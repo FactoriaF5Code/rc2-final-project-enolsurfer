@@ -29,3 +29,12 @@
     font-size: 1.5rem;
     opacity: 0.8;
 }
+
+.itemPast, .item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    align-self: stretch;
+}

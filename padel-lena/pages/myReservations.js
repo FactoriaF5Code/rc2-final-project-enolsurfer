@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import styles from '../styles/MyReservations.module.css';
+import withAuth from '../hoc/withAuth';
 
 const MyReservations = () => {
     const [reservations, setReservations] = useState([]);
@@ -53,4 +54,4 @@ const MyReservations = () => {
     );
 };
 
-export default MyReservations;
+export default withAuth(MyReservations);

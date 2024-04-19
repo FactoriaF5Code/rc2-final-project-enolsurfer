@@ -5,8 +5,10 @@ import '../config/firebaseConfig';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { signOut } from 'firebase/auth';
+import withAuthRedirect from '../hoc/withAuthRedirect';
 
-export default function Login() {
+
+function Login() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(
     () => (typeof window !== 'undefined' && window.localStorage.getItem('isLoggedIn') === 'true') || false
@@ -83,10 +85,12 @@ export default function Login() {
       fill="#EB4335"
     ></path>
   </svg>
-  Sign in with Google
+  Iniciar sesión con Google
 </button>)}
 
       </div>
     </div>
   );
 }
+
+export default withAuthRedirect(Login);
